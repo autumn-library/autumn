@@ -1,0 +1,12 @@
+{
+    "diagnostics": {
+        "parameters": {
+            "IncorrectLineBreak": {
+                "listOfIncorrectFirstSymbol": ";"
+            },
+            "Typo": {
+                "userWordsToIgnore": "Инстанс"
+            }
+        }
+    }
+}
