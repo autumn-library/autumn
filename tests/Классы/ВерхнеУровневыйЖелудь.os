@@ -1,3 +1,5 @@
+// BSLLS:ExportVariables-off
+// BSLLS:MissingVariablesDescription-off
 Перем _ЖелудьНижнегоУровня;
 
 &Пластилин("ЖелудьНижнегоУровня")
