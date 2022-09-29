@@ -279,8 +279,6 @@
 Конфигурационный файл может быть в виде `json` или `yaml` файла, называется `autumn-properties.json`/`autumn-properties.yml` соответственно и ищется ОСенью в каталоге запуска приложения или в подкаталоге `src`.
 
 ```json
-// file: autumn-properties.json
-
 {
     "Логин": "user"
     "Пароль": "pass",
