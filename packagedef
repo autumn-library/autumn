@@ -9,7 +9,7 @@
         .Автор("Nikita Fedkin")
         .АдресАвтора("nixel2007@gmail.com")
         .Описание("Dependency injection framework для OneScript")
-        .ВерсияСреды("1.8.0")
+        .ВерсияСреды("1.8.1")
         .ВключитьФайл("src")
         .ВключитьФайл("tests")
         .ВключитьФайл("LICENSE.md")
