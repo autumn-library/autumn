@@ -1,5 +1,8 @@
 # Autumn/ОСень
 
+[![Тестирование](https://github.com/nixel2007/autumn/actions/workflows/testing.yml/badge.svg?branch=master)](https://github.com/nixel2007/autumn/actions/workflows/testing.yml)
+[![Статус порога качества](https://sonar.openbsl.ru/api/project_badges/measure?project=autumn&metric=alert_status)](https://sonar.openbsl.ru/dashboard?id=autumn)
+
 > Что такое осень - это желудь!
 
 Осень…. прекрасная пора. Ею вдохновлялся Пушкин, говорил, что осенью его особенно прёт. Именно это и произошло с авторами фреймворка "ОСень". Потому что осень - это прекрасно.  
