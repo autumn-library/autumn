@@ -45,31 +45,30 @@ jobs:
         run: echo "##[set-output name=version;]`cat packagedef | grep ".Версия(" | sed 's|[^"]*"||' | sed -r 's/".+//'`"
         id: extract_version
 
+      - name: Setup sonarqube
+        uses: warchant/setup-sonar-scanner@v3
+
       # Анализ проекта в SonarQube (ветка)
       - name: Анализ в SonarQube (branch)
         if: github.event_name == 'push'
-        uses: nixel2007/sonarcloud-github-action@v1.5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          args: >
-            -Dsonar.host.url=https://sonar.openbsl.ru
-            -Dsonar.branch.name=${{ env.BRANCH_NAME }}
-            -Dsonar.projectVersion=${{ steps.extract_version.outputs.version }}
+        run: sonar-scanner
+          -Dsonar.host.url=https://sonar.openbsl.ru
+          -Dsonar.branch.name=${{ env.BRANCH_NAME }}
+          -Dsonar.projectVersion=${{ steps.extract_version.outputs.version }}
 
       # Анализ проекта в SonarQube (PR)
       # https://docs.sonarqube.org/latest/analysis/pull-request/
       - name: Анализ в SonarQube (pull-request)
         if: github.event_name == 'pull_request'
-        uses: nixel2007/sonarcloud-github-action@v1.5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          args: >
-            -Dsonar.host.url=https://sonar.openbsl.ru
-            -Dsonar.pullrequest.key=${{ github.event.pull_request.number }}
-            -Dsonar.pullrequest.branch=${{ github.event.pull_request.head.ref }}
-            -Dsonar.pullrequest.base=${{ github.event.pull_request.base.ref }}
-            -Dsonar.scm.revision=${{ github.event.pull_request.head.sha }}
+        run: sonar-scanner
+          -Dsonar.host.url=https://sonar.openbsl.ru
+          -Dsonar.pullrequest.key=${{ github.event.pull_request.number }}
+          -Dsonar.pullrequest.branch=${{ github.event.pull_request.head.ref }}
+          -Dsonar.pullrequest.base=${{ github.event.pull_request.base.ref }}
+          -Dsonar.scm.revision=${{ github.event.pull_request.head.sha }}
