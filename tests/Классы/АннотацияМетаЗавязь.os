@@ -1,3 +1,4 @@
+// BSLLS:MissingVariablesDescription-off
 // BSLLS:UnusedParameters-off
 Перем _Значение;
 Перем _Тип;
