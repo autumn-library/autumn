@@ -1,4 +1,4 @@
-
+// BSLLS:MissingVariablesDescription-off
 Перем ХранимаяБлестяшка;
 
 &Желудь

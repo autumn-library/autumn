@@ -1,3 +1,4 @@
+// BSLLS:MissingVariablesDescription-off
 Перем _ПростаяНастройка;
 
 Функция ПростаяНастройка() Экспорт

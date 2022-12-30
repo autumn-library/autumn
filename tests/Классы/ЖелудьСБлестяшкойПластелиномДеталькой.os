@@ -1,4 +1,5 @@
-
+// BSLLS:MissingVariablesDescription-off
+// BSLLS:ExportVariables-off
 Перем ХранимаяБлестяшка;
 Перем ЕщеХранимаяБлестяшка;
 
