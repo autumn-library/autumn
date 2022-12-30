@@ -54,6 +54,7 @@ jobs:
 
       - name: Публикация в hub.oscript.io
         shell: bash
-        run: opm push -f ./${{ env.PACKAGE_MASK }} --token ${{ env.GITHUB_TOKEN }} -c stable
+        run: opm push -f ./${{ env.PACKAGE_MASK }} --token ${{ env.PUSH_TOKEN }} -c stable
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUSH_TOKEN: ${{ secrets.PUSH_TOKEN }}
