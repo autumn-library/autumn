@@ -50,7 +50,7 @@ jobs:
         uses: AButler/upload-release-assets@v2.0.2
         with:
           files: ./${{ env.PACKAGE_MASK }}
-          repo-token: ${{ secrets.PUSH_TOKEN }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Публикация в hub.oscript.io
         shell: bash
