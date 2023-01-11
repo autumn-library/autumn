@@ -47,7 +47,7 @@ jobs:
           path: ./${{ env.PACKAGE_MASK }}
 
       - name: Заливка в релиз
-        uses: AButler/upload-release-assets@v1.0
+        uses: AButler/upload-release-assets@v2.0.2
         with:
           files: ./${{ env.PACKAGE_MASK }}
           repo-token: ${{ secrets.PUSH_TOKEN }}
