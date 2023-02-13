@@ -46,11 +46,11 @@ jobs:
           name: package.zip
           path: ./${{ env.PACKAGE_MASK }}
 
-      - name: Заливка в релиз
-        uses: AButler/upload-release-assets@v2.0.2
-        with:
-          files: ./${{ env.PACKAGE_MASK }}
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      #- name: Заливка в релиз
+      #  uses: AButler/upload-release-assets@v2.0.2
+      #  with:
+      #    files: ./${{ env.PACKAGE_MASK }}
+      #    repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Публикация в hub.oscript.io
         shell: bash
