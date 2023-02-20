@@ -7,7 +7,7 @@ name: Контроль качества
 on: [push, pull_request]
 jobs:
   build:
-    if: github.repository == 'autumn-library/autumn'
+    if: (github.repository == 'autumn-library/autumn') && (github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.event.repository.full_name)
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
