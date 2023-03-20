@@ -7,13 +7,13 @@ name: Контроль качества
 on: [push, pull_request]
 jobs:
   build:
-    if: github.repository == 'nixel2007/autumn'
+    if: (github.repository == 'autumn-library/autumn') && (github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.event.repository.full_name)
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]
-        oscript_version: ['1.8.2']
+        oscript_version: ['stable']
 
     steps:
       # Загрузка проекта
