@@ -13,7 +13,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]
-        oscript_version: ['stable']
+        oscript_version: ['lts-dev']
 
     steps:
       # Загрузка проекта
