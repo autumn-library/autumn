@@ -1,3 +1,4 @@
+// BSLLS:UnusedLocalVariable-off
 Перем _КомпанейскийЖелудь;
 
 &Желудь

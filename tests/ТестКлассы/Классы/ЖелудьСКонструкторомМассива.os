@@ -1,3 +1,5 @@
+// BSLLS:MissingVariablesDescription-off
+// BSLLS:ExportVariables-off
 
 &КонструкторМассива(
 	Элемент = 1,
