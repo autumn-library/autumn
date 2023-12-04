@@ -13,7 +13,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]
-        oscript_version: ['stable']
+        oscript_version: ['lts-dev']
 
     steps:
       # Загрузка проекта
@@ -26,7 +26,7 @@ jobs:
 
       # Установка OneScript конкретной версии
       - name: Установка OneScript
-        uses: otymko/setup-onescript@v1.1
+        uses: otymko/setup-onescript@v1.3
         with:
           version: ${{ matrix.oscript_version }}
 
