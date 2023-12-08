@@ -21,4 +21,4 @@
 	Возврат "ТаблицаЗначений";
 КонецФункции
 
-Лог = Логирование.ПолучитьЛог("oscript.lib.autumn.static-initializer");
+Лог = Логирование.ПолучитьЛог("oscript.lib.autumn.acorn-types");
