@@ -13,7 +13,7 @@
             "cwd": "${workspaceRoot}",
             "env": {},
             "windows": {
-                "runtimeExecutable": "${env:OVM_OSCRIPTBIN}/oscript.bat"
+                "runtimeExecutable": "${env:OVM_OSCRIPTBIN}/oscript.exe"
             },
             "linux": {
                 "runtimeExecutable": "${env:OVM_OSCRIPTBIN}/oscript"
