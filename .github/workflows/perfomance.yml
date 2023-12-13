@@ -1,44 +1,17 @@
-# MIT License
-# Copyright (C) 2020 Tymko Oleg <olegtymko@yandex.ru> and contributors
-# All rights reserved.
-
 name: Производительность
-# Любой пуш и pr в проекте
-on: [push, pull_request]
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ${{ matrix.os }}
+  test:
     strategy:
       fail-fast: false
       matrix:
-        os: ['ubuntu-latest']
         oscript_version: ['dev', 'lts-dev']
-        
-    steps:
-      # Загрузка проекта
-      - name: Актуализация
-        uses: actions/checkout@v2
-
-      # Установка OneScript конкретной версии
-      - name: Установка OneScript
-        uses: otymko/setup-onescript@v1.3
-        with:
-          version: ${{ matrix.oscript_version }}
-
-      # Установка зависимостей пакета
-      - name: Установка зависимостей
-        run: |
-          opm install opm
-          opm install -l --dev
-          
-      # Задача тестирования, в результате ожидается успешное выполнение
-      - name: Тестирование
-        run: oscript ./tasks/perfomance.os
-
-      # Публикация результатов тестирования
-      - name: Publish Perfomance Test Report
-        uses: mikepenz/action-junit-report@v3
-        if: always() # always run even if the previous step fails
-        with:
-          report_paths: '**/out/tests.xml'
+    uses: autumn-library/workflows/.github/workflows/test.yml@main
+    with:
+      oscript_version: ${{ matrix.oscript_version }}
+      test_script_path: './tasks/performance.os'
