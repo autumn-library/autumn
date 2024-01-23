@@ -1,57 +1,15 @@
-# MIT License
-# Copyright (C) 2020 Tymko Oleg <olegtymko@yandex.ru> and contributors
-# All rights reserved.
+name: Публикация релиза
 
-name: Подготовка релиза и публикация в хабе
-# Только события создания и изменения релиза
 on:
-    release:
-        types: [published, edited]
+  release:
+      types:
+            - published
+              workflow_dispatch:
 
-env:
-  PACKAGE_MASK: autumn-*.ospx
-
-jobs:
-  build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest]
-        oscript_version: ['stable']
-        
-    steps:
-      # Загрузка проекта
-      - name: Актуализация
-        uses: actions/checkout@v2
-
-      # Установка OneScript конкретной версии
-      - name: Установка OneScript
-        uses: otymko/setup-onescript@v1.3
-        with:
-          version: ${{ matrix.oscript_version }}
-
-      # Установка зависимостей пакета
-      - name: Установка зависимостей
-        run: |
-          opm install opm
-          opm install
-
-      - name: Сборка пакета
-        run: opm build .
-
-      - name: Заливка артефактов
-        uses: actions/upload-artifact@v2
-        with:
-          name: package.zip
-          path: ./${{ env.PACKAGE_MASK }}
-
-      #- name: Заливка в релиз
-      #  uses: AButler/upload-release-assets@v2.0.2
-      #  with:
-      #    files: ./${{ env.PACKAGE_MASK }}
-      #    repo-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Публикация в hub.oscript.io
-        shell: bash
-        run: opm push -f ./${{ env.PACKAGE_MASK }} --token ${{ secrets.PUSH_TOKEN }} -c stable
+              jobs:
+                release:
+                    uses: autumn-library/workflows/.github/workflows/release.yml@main
+                        with:
+                              package_mask: "autumn-*.ospx"
+                                  secrets:
+                                        PUSH_TOKEN: ${{ secrets.PUSH_TOKEN }}
