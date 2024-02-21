@@ -13,4 +13,4 @@ jobs:
         oscript_version: ['dev', 'lts-dev', 'default']
     uses: autumn-library/workflows/.github/workflows/test.yml@main
     with:
-      oscript_version: ${{ matrix.oscript_version }} 
+      oscript_version: ${{ matrix.oscript_version }}

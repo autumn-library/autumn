@@ -7,8 +7,22 @@ on:
 
 jobs:
   sonar:
-    uses: autumn-library/workflows/.github/workflows/sonar.yml@main
+    uses: autumn-library/workflows/.github/workflows/sonar.yml@coverage
     with:
       github_repository: autumn-library/autumn
     secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  coverage:
+    runs-on: ubuntu-latest
+    needs: [sonar]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4.0.1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: autumn-library/autumn
+    
