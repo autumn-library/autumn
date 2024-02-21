@@ -1,3 +1,6 @@
+// BSLLS:MissingVariablesDescription-off
+// BSLLS:ExportVariables-off
+
 Перем СработалоРаз Экспорт;
 
 Функция ОбработатьЖелудь(Желудь, ОпределениеЖелудя) Экспорт // BSLLS:UnusedParameters-off

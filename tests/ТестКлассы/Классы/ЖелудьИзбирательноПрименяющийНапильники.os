@@ -1,3 +1,6 @@
+// BSLLS:MissingVariablesDescription-off
+// BSLLS:ExportVariables-off
+
 &Пластилин
 Перем ЖелудьНижнегоУровня Экспорт;
 
