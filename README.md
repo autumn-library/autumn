@@ -1,6 +1,6 @@
 # Autumn/ОСень
 
-[![Тестирование](https://github.com/nixel2007/autumn/actions/workflows/testing.yml/badge.svg?branch=master)](https://github.com/nixel2007/autumn/actions/workflows/testing.yml)
+[![Тестирование](https://github.com/autumn-library/autumn/actions/workflows/testing.yml/badge.svg?branch=master)](https://github.com/autumn-library/autumn/actions/workflows/testing.yml)
 [![Статус порога качества](https://sonar.openbsl.ru/api/project_badges/measure?project=autumn&metric=alert_status)](https://sonar.openbsl.ru/dashboard?id=autumn)
 
 > Что такое осень - это желудь!
