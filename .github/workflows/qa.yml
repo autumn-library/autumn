@@ -10,7 +10,7 @@ jobs:
     uses: autumn-library/workflows/.github/workflows/sonar.yml@coverage
     with:
       github_repository: autumn-library/autumn
-      codecov: true
+      coveralls: true
     secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      
