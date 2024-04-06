@@ -11,7 +11,6 @@ jobs:
     with:
       github_repository: autumn-library/autumn
       coveralls: true
-      oscript_version: lts-dev
     secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       
