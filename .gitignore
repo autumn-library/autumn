@@ -3,3 +3,4 @@ oscript_modules/
 *.ospx
 docs/vp/node_modules
 /docs/vp/.vitepress/dist
+/docs/vp/.vitepress/cache
