@@ -15,7 +15,7 @@
 
 # Документация
 
-Документация и материалы по работе с фрэймворком можно найти [здесь](https://autumndocs.neocities.org/docs/Getting-started/About-autumn.html)
+Документация и материалы по работе с фрэймворком можно найти [здесь](https://autumndocs.neocities.org)
 
 ## Заключение
 
