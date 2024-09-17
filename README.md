@@ -1,3 +1,6 @@
+
+![cover CiqiQHG1](https://github.com/user-attachments/assets/f24d50a1-b006-407a-8e81-d737130e4f29)
+
 # Autumn/ОСень
 
 [![Тестирование](https://github.com/autumn-library/autumn/actions/workflows/testing.yml/badge.svg?branch=master)](https://github.com/autumn-library/autumn/actions/workflows/testing.yml)
