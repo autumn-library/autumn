@@ -2,8 +2,8 @@ name: Публикация документации
 
 on:
   push:
-    #paths:
-    #  - 'docs/**'
+    paths:
+      - 'docs/**'
     branches:
       - 'master'
   workflow_dispatch:
