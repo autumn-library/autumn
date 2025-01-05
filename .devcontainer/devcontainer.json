@@ -16,6 +16,7 @@
 			"repo": "oscript-library/ovm",
 			"version": "latest",
 			"asset": "ovm.exe",
+			"binaryNames": "ovm.exe",
 			"binLocation": "/workspace/autumn"
 		}
 	},
