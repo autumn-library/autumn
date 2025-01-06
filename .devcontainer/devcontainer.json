@@ -1,0 +1,57 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+	"name": "Ubuntu",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/base:jammy",
+	
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	"features": {
+		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
+			"packages": [
+				"mono-complete"
+			]
+		},
+		"ghcr.io/devcontainers-extra/features/gh-release:1": {
+			"repo": "oscript-library/ovm",
+			"version": "latest",
+			"binaryNames": "ovm.exe",
+			"additionalFlags": [
+				"--no-filter-assets-by-platform"
+			]
+		}
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "bash .devcontainer/postCreateCommand.sh",
+
+	"postAttachCommand": "source /home/vscode/.profile",
+
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"extensions":[
+				"1c-syntax.language-1c-bsl",
+				"EvilBeaver.oscript-debug",
+				"zhuangtongfa.material-theme",
+				"yzhang.markdown-all-in-one",
+				"GitHub.copilot",
+				"GitHub.copilot-chat"
+			],
+
+			"settings": {
+				"language-1c-bsl.languageServerReleaseChannel": "prerelease"
+			}
+		}
+	},
+
+	"containerEnv": {
+		"LC_ALL": "en_US.UTF-8"
+	}
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
