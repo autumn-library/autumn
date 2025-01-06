@@ -15,9 +15,10 @@
 		"ghcr.io/devcontainers-extra/features/gh-release:1": {
 			"repo": "oscript-library/ovm",
 			"version": "latest",
-			"asset": "ovm.exe",
 			"binaryNames": "ovm.exe",
-			"binLocation": "/workspace/autumn"
+			"additionalFlags": [
+				"--no-filter-assets-by-platform"
+			]
 		}
 	},
 
@@ -25,16 +26,30 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "uname -a",
+	"postCreateCommand": "bash .devcontainer/postCreateCommand.sh",
+
+	"postAttachCommand": "source /home/vscode/.profile",
 
 	// Configure tool-specific properties.
 	"customizations": {
 		"vscode": {
 			"extensions":[
 				"1c-syntax.language-1c-bsl",
-				"EvilBeaver.oscript-debug"
-			]
+				"EvilBeaver.oscript-debug",
+				"zhuangtongfa.material-theme",
+				"yzhang.markdown-all-in-one",
+				"GitHub.copilot",
+				"GitHub.copilot-chat"
+			],
+
+			"settings": {
+				"language-1c-bsl.languageServerReleaseChannel": "prerelease"
+			}
 		}
+	},
+
+	"containerEnv": {
+		"LC_ALL": "en_US.UTF-8"
 	}
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
