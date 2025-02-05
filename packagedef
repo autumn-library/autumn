@@ -5,7 +5,7 @@
 
 
 Описание.Имя("autumn")
-        .Версия("4.3.8")
+        .Версия("4.3.9")
         .Автор("Nikita Fedkin")
         .АдресАвтора("nixel2007@gmail.com")
         .Описание("Dependency injection framework для OneScript")
@@ -16,7 +16,7 @@
         .ВключитьФайл("README.md")
         .ЗависитОт("annotations", "1.2.0")
         .ЗависитОт("asserts", "1.4.0")
-        .ЗависитОт("configor", "0.9.0")
+        .ЗависитОт("configor", "0.9.1")
         .ЗависитОт("logos", "1.7.1")
         .ЗависитОт("fluent", "0.6.1")
         .ЗависитОт("reflector", "0.7.1")
