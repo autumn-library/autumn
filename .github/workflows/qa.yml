@@ -1,74 +1,16 @@
-# MIT License
-# Copyright (C) 2020 Tymko Oleg <olegtymko@yandex.ru> and contributors
-# All rights reserved.
-
 name: Контроль качества
-# Любой пуш и pr в проекте но с фильтром по основному проекту
-on: [push, pull_request]
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
 jobs:
-  build:
-    if: (github.repository == 'autumn-library/autumn') && (github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.event.repository.full_name)
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest]
-        oscript_version: ['stable']
-
-    steps:
-      # Загрузка проекта
-      - name: Актуализация
-        uses: actions/checkout@v2
-
-      # Вычисление имени ветки
-      - name: Compute branch name
-        uses: nelonoel/branch-name@v1.0.1
-
-      # Установка OneScript конкретной версии
-      - name: Установка OneScript
-        uses: otymko/setup-onescript@v1.1
-        with:
-          version: ${{ matrix.oscript_version }}
-
-      # Установка зависимостей пакета
-      - name: Установка зависимостей
-        run: |
-          opm install opm
-          opm install -l --dev
-
-      # Запуск тестов и сбор покрытия кода
-      - name: Покрытие кода
-        run: oscript ./tasks/coverage.os
-
-      - name: Извлечение версии пакета
-        shell: bash
-        run: echo "##[set-output name=version;]`cat packagedef | grep ".Версия(" | sed 's|[^"]*"||' | sed -r 's/".+//'`"
-        id: extract_version
-
-      - name: Setup sonarqube
-        uses: warchant/setup-sonar-scanner@v3
-
-      # Анализ проекта в SonarQube (ветка)
-      - name: Анализ в SonarQube (branch)
-        if: github.event_name == 'push'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: sonar-scanner
-          -Dsonar.host.url=https://sonar.openbsl.ru
-          -Dsonar.branch.name=${{ env.BRANCH_NAME }}
-          -Dsonar.projectVersion=${{ steps.extract_version.outputs.version }}
-
-      # Анализ проекта в SonarQube (PR)
-      # https://docs.sonarqube.org/latest/analysis/pull-request/
-      - name: Анализ в SonarQube (pull-request)
-        if: github.event_name == 'pull_request'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: sonar-scanner
-          -Dsonar.host.url=https://sonar.openbsl.ru
-          -Dsonar.pullrequest.key=${{ github.event.pull_request.number }}
-          -Dsonar.pullrequest.branch=${{ github.event.pull_request.head.ref }}
-          -Dsonar.pullrequest.base=${{ github.event.pull_request.base.ref }}
-          -Dsonar.scm.revision=${{ github.event.pull_request.head.sha }}
+  sonar:
+    uses: autumn-library/workflows/.github/workflows/sonar.yml@coverage
+    with:
+      github_repository: autumn-library/autumn
+      coveralls: true
+    secrets:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      

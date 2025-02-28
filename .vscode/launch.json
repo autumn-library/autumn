@@ -12,7 +12,15 @@
             "args": [],
             "cwd": "${workspaceRoot}",
             "env": {},
-            "runtimeExecutable": null,
+            "windows": {
+                "runtimeExecutable": "${env:OVM_OSCRIPTBIN}/oscript.exe"
+            },
+            "linux": {
+                "runtimeExecutable": "${env:OVM_OSCRIPTBIN}/oscript"
+            },
+            "osx": {
+                "runtimeExecutable": "${env:OVM_OSCRIPTBIN}/oscript"
+            },
             "runtimeArgs": [],
             "debugPort": 2801
         }

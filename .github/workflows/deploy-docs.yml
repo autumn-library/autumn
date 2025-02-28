@@ -1,0 +1,16 @@
+name: Публикация документации
+
+on:
+  push:
+    paths:
+      - 'docs/**'
+    branches:
+      - 'master'
+  workflow_dispatch:
+
+jobs:
+  deploy-docs:
+    uses: autumn-library/workflows/.github/workflows/deploy-docs.yml@main
+    with:
+      github_repository: autumn-library/autumn
+    secrets: inherit
