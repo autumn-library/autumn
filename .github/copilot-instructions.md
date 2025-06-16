@@ -26,7 +26,7 @@ oscript tasks/coverage.os
 
 ## Качество кода
 
-Проект анализируется на сервере SonarQube sonar.openbsl.ru, к которому у тебя есть доступ. Используется плагин для поддержки 1С, основанный на проекте BSL Language Server. 
+Проект анализируется на сервере SonarQube sonar.openbsl.ru, к которому у тебя есть прямой доступ, в том числе по web-api. Используется плагин для поддержки 1С, основанный на проекте BSL Language Server. 
 Документация и список диагностик BSL LS доступны на сайте https://1c-syntax.github.io/bsl-language-server
 Реализация диагностик доступна по адресу https://github.com/1c-syntax/bsl-language-server
 
