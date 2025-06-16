@@ -1,0 +1,43 @@
+name: "OneScript Development Environment Setup"
+
+# Allow testing of the setup steps from your repository's "Actions" tab.
+on: workflow_dispatch
+
+jobs:
+  # The job MUST be called `copilot-setup-steps` or it will not be picked up by Copilot.
+  copilot-setup-steps:
+    runs-on: ubuntu-latest
+
+    # Set the permissions to the lowest permissions possible needed for your steps.
+    # Copilot will be given its own token for its operations.
+    permissions:
+      # Clone the repository to install dependencies
+      contents: read
+
+    # Setup steps for OneScript development environment
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Вычисление версии OneScript
+        shell: bash
+        id: extract_oscript_version
+        run: |
+          set -ex
+          if [ -f packagedef ]; then
+            extracted_version=$(cat packagedef | grep ".ВерсияСреды(" | sed 's|[^"]*"||' | sed -r 's/".+//' || true)
+            version="${extracted_version:-stable}"
+          else
+            version="stable"
+          fi
+          echo "version=$version" >> $GITHUB_OUTPUT
+
+      - name: Установка OneScript
+        uses: otymko/setup-onescript@v1.5
+        with:
+          version: ${{ steps.extract_oscript_version.outputs.version }}
+
+      - name: Установка зависимостей
+        run: |
+          opm install opm
+          opm install -l --dev
