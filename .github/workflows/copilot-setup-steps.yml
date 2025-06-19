@@ -19,6 +19,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - run: git config --global core.quotepath false
+
       - name: Вычисление версии OneScript
         shell: bash
         id: extract_oscript_version
