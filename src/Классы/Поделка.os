@@ -1,3 +1,5 @@
+#native
+
 #Использовать "../internal"
 #Использовать annotations
 #Использовать autumn-collections
