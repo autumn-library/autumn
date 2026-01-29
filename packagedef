@@ -5,7 +5,7 @@
 
 
 Описание.Имя("autumn")
-        .Версия("4.3.11")
+        .Версия("4.3.12")
         .Автор("Nikita Fedkin")
         .АдресАвтора("nixel2007@gmail.com")
         .Описание("Dependency injection framework для OneScript")
@@ -14,7 +14,7 @@
         .ВключитьФайл("tests")
         .ВключитьФайл("LICENSE.md")
         .ВключитьФайл("README.md")
-        .ЗависитОт("annotations", "1.2.0")
+        .ЗависитОт("annotations", "1.4.0")
         .ЗависитОт("asserts", "1.4.0")
         .ЗависитОт("configor", "0.9.1")
         .ЗависитОт("logos", "1.7.1")
