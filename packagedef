@@ -22,7 +22,7 @@
         .ЗависитОт("reflector", "0.7.1")
         .ЗависитОт("semaphore", "1.1.0")
         .ЗависитОт("collectionos", "0.7.2")
-        .ЗависитОт("autumn-collections", "0.1.0")
+        .ЗависитОт("autumn-collections", "0.1.1")
         .ЗависитОт("lambdas", "0.3.2")
 
         .РазработкаЗависитОт("1testrunner")
