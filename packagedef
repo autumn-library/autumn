@@ -5,7 +5,7 @@
 
 
 Описание.Имя("autumn")
-        .Версия("4.3.13")
+        .Версия("4.3.15")
         .Автор("Nikita Fedkin")
         .АдресАвтора("nixel2007@gmail.com")
         .Описание("Dependency injection framework для OneScript")
