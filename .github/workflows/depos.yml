@@ -1,0 +1,19 @@
+name: Обновление зависимостей
+
+on:
+  schedule:
+    - cron: '0 0 * * 1' # Каждый понедельник
+  workflow_dispatch:
+
+jobs:
+  update-dependencies:
+    if: github.repository_owner == 'autumn-library'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Обновление зависимостей
+        uses: Stivo182/depos-action@v1
+        with:
+          #filter: autumn-* # Обновлять только пакеты autumn
+          #target: minor    # До минорных версий
+          message-prefix: build(deps)
+          token: ${{ secrets.PAT }}
