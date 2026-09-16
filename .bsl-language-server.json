@@ -12,9 +12,15 @@
     "codeLens": {
         "testRunner": {
             "testSources": [
-                "tests",
-                "performance_tests"
-            ]
+                "tests"
+            ],
+            "executable": "oneunit",
+            "executableWin": "oneunit.bat",
+            "getTestsArguments": "d --file %s --mode flat",
+            "runAllTestsArguments": "e --file %s --genericCoverage out/genericCoverage.xml --cobertura out/coverage.xml",
+            "runTestArguments": "e --file %s -m %s --genericCoverage out/genericCoverage.xml --cobertura out/coverage.xml",
+            "debugTestArguments": "e --debug 2801 --file %s -m %s",
+            "getTestsResultPattern": "^[^.]+\\.([^\\s.]+).*$"
         }
     }
 }

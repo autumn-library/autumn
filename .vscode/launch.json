@@ -23,6 +23,12 @@
             },
             "runtimeArgs": [],
             "debugPort": 2801
+        },
+        {
+            "name": "Подключение к oneunit",
+            "type": "oscript",
+            "request": "attach",
+            "debugPort": 2801
         }
     ]
 }
