@@ -14,4 +14,5 @@ jobs:
     uses: autumn-library/workflows/.github/workflows/test.yml@main
     with:
       oscript_version: ${{ matrix.oscript_version }}
-      test_script_path: './tasks/performance.os'
+      test_engine: 'oneunit'
+      test_dir_paths: 'performance_tests'

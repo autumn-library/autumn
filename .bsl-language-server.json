@@ -12,7 +12,8 @@
     "codeLens": {
         "testRunner": {
             "testSources": [
-                "tests"
+                "tests",
+                "performance_tests"
             ],
             "executable": "oneunit",
             "executableWin": "oneunit.bat",
