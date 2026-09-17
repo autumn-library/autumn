@@ -32,7 +32,7 @@ oscript_modules/bin/oneunit e --genericCoverage out/genericCoverage.xml --cobert
 
 ## Тесты производительности
 
-В каталоге `performance_tests` лежит отдельный набор тестов производительности. Каждый тест запускает бенчмарк библиотеки benchos (документация - https://github.com/Stivo182/BenchmarkOneScript) из подкаталога `performance_tests/Бенчмарки` и сравнивает среднее время выполнения одной операции с порогом. Запускается набор тем же движком oneunit:
+В каталоге `performance_tests` лежит отдельный набор тестов производительности. Каждый тест запускает бенчмарк библиотеки benchos (документация - https://github.com/Stivo182/BenchmarkOneScript) из подкаталога `performance_tests/Бенчмарки` и сравнивает минимальное время выполнения одной операции с порогом - минимум устойчивее среднего к шуму раннеров. Запускается набор тем же движком oneunit:
 
 ```sh
 oscript_modules/bin/oneunit e -d performance_tests
