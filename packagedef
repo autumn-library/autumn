@@ -5,7 +5,7 @@
 
 
 Описание.Имя("autumn")
-        .Версия("5.0.2")
+        .Версия("5.0.3")
         .Автор("Nikita Fedkin")
         .АдресАвтора("nixel2007@gmail.com")
         .АдресРепозитория("https://github.com/autumn-library/autumn")
