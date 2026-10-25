@@ -6,10 +6,13 @@ on:
       - published
   workflow_dispatch:
 
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   release:
-    uses: autumn-library/workflows/.github/workflows/release.yml@main
+    uses: autumn-library/workflows/.github/workflows/release.yml@v1
     with:
       package_mask: "autumn-*.ospx"
-    secrets:
-      PUSH_TOKEN: ${{ secrets.PUSH_TOKEN }}
+      trusted_publishing: true
